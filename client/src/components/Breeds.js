@@ -1,7 +1,7 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
-import BreedList from "./BreedList";
-import RandomDog from "./RandomDog";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import BreedList from './BreedList';
+import Dog from './Dog';
 
 class Breeds extends React.Component {
   constructor() {
@@ -13,7 +13,7 @@ class Breeds extends React.Component {
 
   getBreeds = () => {
     // this url can go into a config file
-    fetch("https://dog.ceo/api/breeds/list").then(response => response.json())
+    fetch('https://dog.ceo/api/breeds/list').then(response => response.json())
       .then(data => this.setState({ breeds: data.message }))
       .catch(err => {
         console.log('error', err);
@@ -37,14 +37,14 @@ class Breeds extends React.Component {
 
   renderDog = props => {
     const { breed } = props.match.params;
-    return <RandomDog breed={breed} />;
+    return <Dog breed={breed} />;
   };
 
   render() {
     return (
       <Switch>
-        <Route exact path="/breeds" render={this.renderBreeds} />
-        <Route path="/breeds/:breed" render={this.renderDog} />
+        <Route exact path='/breeds' render={this.renderBreeds} />
+        <Route path='/breeds/:breed' render={this.renderDog} />
       </Switch>
     );
   }

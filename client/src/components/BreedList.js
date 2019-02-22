@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const styles = {
   img: {
-    width: "10em"
+    width: '10em'
   },
   ul: {
-    listStyleType: "none"
+    listStyleType: 'none'
   }
 };
 

@@ -1,25 +1,26 @@
-import React from "react";
+import React from 'react';
 
 const styles = {
   container: {
-    height: "10em"
+    height: '10em'
   },
+
   img: {
-    height: "90%"
+    height: '90%'
   }
 };
 
-const Dog = ({ imageURL }) => (
+const DogImage = ({ imageURL }) => (
   <div style={styles.container}>
-    {imageURL ? <img style={styles.img} alt="" src={imageURL} /> : "loading..."}
+    {imageURL ? <img style={styles.img} alt='' src={imageURL} /> : 'loading...'}
   </div>
 );
 
-class RandomDog extends React.Component {
+class Dog extends React.Component {
   constructor() {
     super();
     this.state = {
-      imageURL: ""
+      imageURL: ''
     };
   }
 
@@ -44,11 +45,11 @@ class RandomDog extends React.Component {
     return (
       <div>
         <h2>{breed}</h2>
-        <Dog imageURL={imageURL} onClick={this.getPicture} />
+        <DogImage imageURL={imageURL} onClick={this.getPicture} />
         <button onClick={this.getPicture}> Click for another one </button>
       </div>
     );
   }
 }
 
-export default RandomDog;
+export default Dog;
