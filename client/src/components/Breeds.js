@@ -12,8 +12,12 @@ class Breeds extends React.Component {
   }
 
   getBreeds = () => {
+    // this url can go into a config file
     fetch("https://dog.ceo/api/breeds/list").then(response => response.json())
-      .then(data => this.setState({ breeds: data.message }));
+      .then(data => this.setState({ breeds: data.message }))
+      .catch(err => {
+        console.log('error', err);
+      });
   };
 
   componentDidMount() {

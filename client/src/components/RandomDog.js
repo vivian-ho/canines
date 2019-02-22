@@ -26,8 +26,12 @@ class RandomDog extends React.Component {
   getPicture = () => {
     const { breed } = this.props;
 
+    // this url can go into a config file
     fetch(`https://dog.ceo/api/breed/${breed}/images/random`).then(response => response.json())
-      .then(data => this.setState({ imageURL: data.message }));
+      .then(data => this.setState({ imageURL: data.message }))
+      .catch(err => {
+        console.log('error', err);
+      });
   };
 
   componentDidMount() {
